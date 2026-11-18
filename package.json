@@ -1,0 +1,50 @@
+{
+  "name": "driftwood-travel-contentful",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "cf:setup": "tsx scripts/setup-space.ts",
+    "cf:migrate": "tsx scripts/run-migrations.ts",
+    "seed": "tsx scripts/seed/index.ts",
+    "seed:reset": "tsx scripts/seed/index.ts --reset",
+    "cf:export": "tsx scripts/export-space.ts",
+    "cf:types": "cf-content-types-generator contentful/export/space.json -o src/types/contentful -g",
+    "verify": "tsx scripts/verify.ts",
+    "crawl": "tsx scripts/crawl.ts"
+  },
+  "dependencies": {
+    "@contentful/rich-text-react-renderer": "16.2.2",
+    "@contentful/rich-text-types": "17.2.7",
+    "contentful": "11.12.10",
+    "lucide-react": "1.75.0",
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-markdown": "10.1.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "10.6.0",
+    "@tailwindcss/turbopack": "4.3.3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "cf-content-types-generator": "3.0.1",
+    "contentful-export": "8.5.1",
+    "contentful-management": "12.21.0",
+    "contentful-migration": "5.1.1",
+    "dotenv": "18.0.10",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.15",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.9"
+  }
+}

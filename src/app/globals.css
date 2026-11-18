@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sand-50: #fbf8f3;
+  --color-sand-100: #f4eee4;
+  --color-sand-200: #e6dccb;
+  --color-ocean-600: #1f6f8b;
+  --color-ocean-700: #185a71;
+  --color-ocean-900: #0e2f3c;
+  --color-ink: #1d2a33;
+  --color-clay: #b8743a;
+  --color-forest: #2f5d46;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+body {
+  background: var(--color-sand-50);
+  color: var(--color-ink);
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 76rem;
+  padding-inline: 1rem;
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility section-title {
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  line-height: 1.2;
+  color: var(--color-ink);
+  @media (width >= 48rem) {
+    font-size: 2.25rem;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 font-medium transition;
+  }
+  .btn-primary {
+    @apply bg-ocean-600 text-white hover:bg-ocean-700;
+  }
+  .btn-light {
+    @apply bg-white text-ink hover:bg-sand-100;
+  }
+
+  /* Contentful rich text + markdown output */
+  .richtext {
+    @apply text-lg leading-relaxed text-ink/85;
+  }
+  .richtext > * + * {
+    @apply mt-5;
+  }
+  .richtext h2 {
+    @apply mt-10 font-display text-3xl text-ink;
+  }
+  .richtext h3 {
+    @apply mt-8 text-xl font-semibold text-ink;
+  }
+  .richtext a {
+    @apply text-ocean-700 underline decoration-ocean-600/40 underline-offset-2 hover:decoration-ocean-600;
+  }
+  .richtext ul {
+    @apply list-disc space-y-2 pl-6;
+  }
+  .richtext ol {
+    @apply list-decimal space-y-2 pl-6;
+  }
+  .richtext li > p {
+    @apply m-0;
+  }
+  .richtext blockquote {
+    @apply border-l-4 border-clay pl-5 font-display text-2xl italic text-ink;
+  }
+  .richtext hr {
+    @apply my-10 border-sand-200;
+  }
+  .richtext code {
+    @apply rounded bg-sand-100 px-1.5 py-0.5 text-base;
+  }
+  .rt-table {
+    @apply w-full border-collapse text-left text-base;
+  }
+  .rt-table th,
+  .rt-table td {
+    @apply border border-sand-200 px-4 py-2 align-top;
+  }
+  .rt-table th {
+    @apply bg-sand-100 font-semibold;
+  }
+  .rt-table p {
+    @apply m-0;
+  }
+}
